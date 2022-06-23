@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<serverList>
+	<server>
+		<IP>25.84.121.189</IP>
+		<PASSWORD></PASSWORD>
+		<PORT>5050</PORT>
+	</server>
+	<server>
+		<IP>25.79.17.118</IP>
+		<PASSWORD></PASSWORD>
+		<PORT>5050</PORT>
+	</server>
+	<server>
+		<IP>127.0.0.0</IP>
+		<PASSWORD></PASSWORD>
+		<PORT>5050</PORT>
+	</server>
+</serverList>
