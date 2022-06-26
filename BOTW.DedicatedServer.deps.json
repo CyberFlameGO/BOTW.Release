@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "BOTW.DedicatedServer/1.0.0": {
+        "dependencies": {
+          "BOTWM.Server": "1.0.0"
+        },
+        "runtime": {
+          "BOTW.DedicatedServer.dll": {}
+        }
+      },
+      "BOTWM.Server/1.0.0": {
+        "runtime": {
+          "BOTWM.Server.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BOTW.DedicatedServer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BOTWM.Server/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
