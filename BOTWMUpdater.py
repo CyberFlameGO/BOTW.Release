@@ -65,7 +65,9 @@ if __name__ == "__main__":
 
     if len(arguments) == 1:
         download()
+
     elif len(arguments) > 1:
+        
         branches = getBranches()
         if arguments[1].lower() in ["branch", "b", "branches"]:
             for branch in branches.values():
