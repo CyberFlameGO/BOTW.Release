@@ -15,6 +15,8 @@ def download(branch = None):
         else:
             with open("Branch.txt") as f:
                 branch = f.read()
+                if branch == "":
+                    branch = "main"
 
     print(f"Downloading latest version of branch {branch}...")
 
