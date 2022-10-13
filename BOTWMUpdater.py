@@ -34,7 +34,7 @@ def download(branch = "main"):
 
         copy_tree(os.getcwd() + "/" + foldername + "/" + InsideFolder, os.getcwd())
 
-        with open("Branch.txt", "wb") as file:
+        with open("Branch.txt", "w") as file:
             file.write(branch)
 
         os.remove(zipname)
