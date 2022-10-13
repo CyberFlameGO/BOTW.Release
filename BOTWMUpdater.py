@@ -7,7 +7,14 @@ from distutils.dir_util import copy_tree, remove_tree
 import sys
 import json
 
-def download(branch = "main"):
+def download(branch = None):
+
+    if branch == None:
+        if not os.path.exists("Branch.txt"):
+            branch = "main"
+        else:
+            with open("Branch.txt") as f:
+                branch = f.read()
 
     print(f"Downloading latest version of branch {branch}...")
 
