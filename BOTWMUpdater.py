@@ -7,7 +7,16 @@ from distutils.dir_util import copy_tree, remove_tree
 import sys
 import json
 
-def download(branch = "main"):
+def download(branch = None):
+
+    if branch == None:
+        if not os.path.exists("Branch.txt"):
+            branch = "main"
+        else:
+            with open("Branch.txt") as f:
+                branch = f.read()
+                if branch == "":
+                    branch = "main"
 
     print(f"Downloading latest version of branch {branch}...")
 
@@ -33,6 +42,9 @@ def download(branch = "main"):
         InsideFolder = os.listdir(os.getcwd() + "/" + foldername)[0]
 
         copy_tree(os.getcwd() + "/" + foldername + "/" + InsideFolder, os.getcwd())
+
+        with open("Branch.txt", "w") as file:
+            file.write(branch)
 
         os.remove(zipname)
         os.remove(".gitignore")
@@ -65,7 +77,9 @@ if __name__ == "__main__":
 
     if len(arguments) == 1:
         download()
+
     elif len(arguments) > 1:
+        
         branches = getBranches()
         if arguments[1].lower() in ["branch", "b", "branches"]:
             for branch in branches.values():
