@@ -3,89 +3,47 @@ from requests.structures import CaseInsensitiveDict
 import zipfile
 import uuid
 import os
-from distutils.dir_util import copy_tree, remove_tree
-import sys
-import json
+from distutils.dir_util import copy_tree
+from distutils.dir_util import remove_tree
+import base64
 
-def download(branch = None):
+print("Downloading latest version...")
 
-    if branch == None:
-        if not os.path.exists("Branch.txt"):
-            branch = "main"
-        else:
-            with open("Branch.txt") as f:
-                branch = f.read()
-                if branch == "":
-                    branch = "main"
+Headers = CaseInsensitiveDict()
+Headers["Authorization"] = "token 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"
+URL = "https://api.github.com/repos/edgarcantuco/BOTW.Release/zipball/main"
+# URL = "https://api.github.com/repos/edgarcantuco/BOTW.Release/contents/version.txt"
 
-    print(f"Downloading latest version of branch {branch}...")
+r = requests.get(URL, headers=Headers)
 
-    Headers = CaseInsensitiveDict()
-    Headers["Authorization"] = "token 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"
-    URL = "https://api.github.com/repos/edgarcantuco/BOTW.Release/zipball/" + branch
+# data = r.json()
 
-    r = requests.get(URL, headers=Headers)
+# print(data)
 
-    zipname = uuid.uuid4().hex + ".zip"
-    foldername = uuid.uuid4().hex
+# content = data['content']
+# encoding = data.get('encoding')
 
-    if r.status_code == 200:
-        with open(zipname, 'wb') as file:
-            file.write(r.content)
+# if encoding == "base64":
+#     print(base64.b64decode(content).decode())
+# exit()
 
-        with zipfile.ZipFile(zipname, 'r') as zip_ref:
-            zip_ref.extractall(foldername)
+zipname = uuid.uuid4().hex + ".zip"
+foldername = uuid.uuid4().hex
 
-        file.close()
-        zip_ref.close()
+if r.status_code == 200:
+    with open(zipname, 'wb') as file:
+        file.write(r.content)
 
-        InsideFolder = os.listdir(os.getcwd() + "/" + foldername)[0]
+    with zipfile.ZipFile(zipname, 'r') as zip_ref:
+        zip_ref.extractall(foldername)
 
-        copy_tree(os.getcwd() + "/" + foldername + "/" + InsideFolder, os.getcwd())
+    file.close()
+    zip_ref.close()
 
-        with open("Branch.txt", "w") as file:
-            file.write(branch)
+    InsideFolder = os.listdir(os.getcwd() + "/" + foldername)[0]
 
-        os.remove(zipname)
-        os.remove(".gitignore")
-        remove_tree(foldername)
+    copy_tree(os.getcwd() + "/" + foldername + "/" + InsideFolder, os.getcwd())
 
-def getBranches():
-
-    Headers = CaseInsensitiveDict()
-    Headers["Authorization"] = "token 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"
-    URL = "https://api.github.com/repos/edgarcantuco/BOTW.Release/branches"
-
-    r = requests.get(URL, headers=Headers)
-
-    if r.status_code == 200:
-        r = json.loads(r.content)
-        branches = {}
-
-        for branch in r:
-            branches[branch["name"].lower()] = branch["name"]
-
-        return branches
-
-    else:
-
-        return json.loads(r.content)["message"]
-
-
-if __name__ == "__main__":
-    arguments = sys.argv
-
-    if len(arguments) == 1:
-        download()
-
-    elif len(arguments) > 1:
-        
-        branches = getBranches()
-        if arguments[1].lower() in ["branch", "b", "branches"]:
-            for branch in branches.values():
-                print(branch)
-        else:
-            if arguments[1].lower() in branches.keys():
-                download(branches[arguments[1].lower()])
-            else:
-                input(f"Branch with name {arguments[1]} doesn't exist. Press enter to finish.")
+    os.remove(zipname)
+    os.remove(".gitignore")
+    remove_tree(foldername)
