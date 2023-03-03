@@ -15,6 +15,14 @@
           "BOTW.DedicatedServer.dll": {}
         }
       },
+      "MadMilkman.Ini/1.0.6": {
+        "runtime": {
+          "lib/net20/MadMilkman.Ini.dll": {
+            "assemblyVersion": "1.0.6.0",
+            "fileVersion": "1.0.6.0"
+          }
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
@@ -25,6 +33,7 @@
       },
       "BOTWM.Server/1.0.0": {
         "dependencies": {
+          "MadMilkman.Ini": "1.0.6",
           "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
@@ -38,6 +47,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "MadMilkman.Ini/1.0.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Tf33gAofTNNg65O/yJTJ9tF0101KFm0hJjGUnj6plsWOmn8sCYSZg+d7Sw/HoulB7zrNfKtLy+Zeqo7JHQb8yQ==",
+      "path": "madmilkman.ini/1.0.6",
+      "hashPath": "madmilkman.ini.1.0.6.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.1": {
       "type": "package",
