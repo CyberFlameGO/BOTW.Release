@@ -2,10 +2,9 @@
   {
     "SettingsName": "Game Completion",
     "EnemySync": true,
-    "GlyphSync": true,
     "GameMode": "NoGamemode",
     "QuestSyncSettings": {
-      "Vanilla": true,
+      "Vanilla": false,
       "Koroks": false,
       "Towers": true,
       "Shrines": true,
@@ -16,7 +15,6 @@
   {
     "SettingsName": "Hunter Vs Speedrunner",
     "EnemySync": true,
-    "GlyphSync": true,
     "GameMode": "HunterVsSpeedrunner",
     "QuestSyncSettings": {
       "Vanilla": false,
@@ -30,21 +28,6 @@
   {
     "SettingsName": "Any% Speedrun",
     "EnemySync": true,
-    "GlyphSync": true,
-    "GameMode": "NoGamemode",
-    "QuestSyncSettings": {
-      "Vanilla": false,
-      "Koroks": false,
-      "Towers": true,
-      "Shrines": true,
-      "Locations": true,
-      "DivineBeast": false
-    }
-  },
-  {
-    "SettingsName": "Bingo???",
-    "EnemySync": true,
-    "GlyphSync": true,
     "GameMode": "NoGamemode",
     "QuestSyncSettings": {
       "Vanilla": false,
@@ -58,7 +41,6 @@
   {
     "SettingsName": "Hide n' seek",
     "EnemySync": true,
-    "GlyphSync": true,
     "GameMode": "NoGamemode",
     "QuestSyncSettings": {
       "Vanilla": false,
@@ -72,7 +54,6 @@
   {
     "SettingsName": "Death Swap",
     "EnemySync": false,
-    "GlyphSync": true,
     "GameMode": "DeathSwap",
     "QuestSyncSettings": {
       "Vanilla": false,
