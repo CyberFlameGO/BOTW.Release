@@ -5,7 +5,7 @@
     "GameMode": "NoGamemode",
     "QuestSyncSettings": {
       "Vanilla": false,
-      "Koroks": false,
+      "Koroks": true,
       "Towers": true,
       "Shrines": true,
       "Locations": true,
